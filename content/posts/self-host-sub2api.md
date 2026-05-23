@@ -6,6 +6,8 @@ tags: ["部署", "sub2api", "API", "服务器"]
 author: "Seb"
 ---
 
+![sub2api 中转架构](/images/sub2api-arch.svg)
+
 ## 为什么需要 API 中转
 
 做 AI 开发时间长了，手里攒的模型越来越多：OpenAI 的 GPT-4o、Claude 的 Sonnet 4、DeepSeek 的 V3 和 R1、还有本地跑的 Llama……每个模型都有自己的 API Key、独立的接口地址、不一样的计费方式。

@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" width="700" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+    <linearGradient id="greenGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00c853"/>
+      <stop offset="100%" stop-color="#00e676"/>
+    </linearGradient>
+    <linearGradient id="redGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff1744"/>
+      <stop offset="100%" stop-color="#ff5252"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#00c853"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#ff1744"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#78909c"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="400" fill="url(#bg)" rx="8"/>
+
+  <!-- Title -->
+  <text x="350" y="32" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="bold" fill="#eceff1">双均线交易策略逻辑 (MA5 &amp; MA20)</text>
+
+  <!-- ==================== START NODE ==================== -->
+  <ellipse cx="350" cy="70" rx="130" ry="22" fill="#263238" stroke="#546e7a" stroke-width="2" filter="url(#shadow)"/>
+  <text x="350" y="75" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#eceff1">不断检查 1 分钟 K 线</text>
+
+  <!-- Arrow: Start → Check MA5↑ -->
+  <line x1="350" y1="92" x2="230" y2="130" stroke="#78909c" stroke-width="2" marker-end="url(#arrowGray)"/>
+
+  <!-- Arrow: Start → Check MA5↓ -->
+  <line x1="350" y1="92" x2="470" y2="130" stroke="#78909c" stroke-width="2" marker-end="url(#arrowGray)"/>
+
+  <!-- ==================== CHECK MA5 UP (LEFT) ==================== -->
+  <polygon points="230,130 360,130 340,155 330,155 210,155" fill="#1b5e20" stroke="#00c853" stroke-width="2" filter="url(#shadow)"/>
+  <text x="285" y="148" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#eceff1">MA5 上穿 MA20？</text>
+
+  <!-- Check MA5↑ → Open Long -->
+  <line x1="340" y1="155" x2="285" y2="195" stroke="#00c853" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <text x="330" y="180" text-anchor="start" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" fill="#00c853">是</text>
+
+  <!-- ==================== OPEN LONG ==================== -->
+  <rect x="215" y="195" width="140" height="35" rx="6" fill="#1b5e20" stroke="#00c853" stroke-width="2" filter="url(#shadow)"/>
+  <text x="285" y="217" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="bold" fill="#00e676">📈 开多（做多）</text>
+
+  <!-- Open Long → Monitor -->
+  <line x1="285" y1="230" x2="285" y2="270" stroke="#00c853" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+  <!-- ==================== MONITOR LONG ==================== -->
+  <rect x="215" y="270" width="140" height="35" rx="6" fill="#1a237e" stroke="#5c6bc0" stroke-width="2" filter="url(#shadow)"/>
+  <text x="285" y="292" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#eceff1">⏳ 监控持仓</text>
+
+  <!-- Monitor → Take Profit / Stop Loss -->
+  <line x1="285" y1="305" x2="285" y2="335" stroke="#00c853" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+  <!-- ==================== TP/SL LONG ==================== -->
+  <rect x="195" y="335" width="180" height="35" rx="17" fill="#0d3320" stroke="#00c853" stroke-width="2" filter="url(#shadow)"/>
+  <text x="285" y="350" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" fill="#eceff1">止盈 +0.3%</text>
+  <text x="285" y="363" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" fill="#ef5350">或止损 -0.15%</text>
+
+  <!-- ==================== CHECK MA5 DOWN (RIGHT) ==================== -->
+  <polygon points="360,130 470,130 490,155 500,155 380,155" fill="#4a1520" stroke="#ff1744" stroke-width="2" filter="url(#shadow)"/>
+  <text x="425" y="148" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#eceff1">MA5 下穿 MA20？</text>
+
+  <!-- Check MA5↓ → Open Short -->
+  <line x1="360" y1="155" x2="415" y2="195" stroke="#ff1744" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="365" y="180" text-anchor="start" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" fill="#ff1744">是</text>
+
+  <!-- ==================== OPEN SHORT ==================== -->
+  <rect x="345" y="195" width="140" height="35" rx="6" fill="#4a1520" stroke="#ff1744" stroke-width="2" filter="url(#shadow)"/>
+  <text x="415" y="217" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="bold" fill="#ff5252">📉 开空 / 平多</text>
+
+  <!-- Open Short → Monitor -->
+  <line x1="415" y1="230" x2="415" y2="270" stroke="#ff1744" stroke-width="2" marker-end="url(#arrowRed)"/>
+
+  <!-- ==================== MONITOR SHORT ==================== -->
+  <rect x="345" y="270" width="140" height="35" rx="6" fill="#1a237e" stroke="#5c6bc0" stroke-width="2" filter="url(#shadow)"/>
+  <text x="415" y="292" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#eceff1">⏳ 监控持仓</text>
+
+  <!-- Monitor → Take Profit / Stop Loss -->
+  <line x1="415" y1="305" x2="415" y2="335" stroke="#ff1744" stroke-width="2" marker-end="url(#arrowRed)"/>
+
+  <!-- ==================== TP/SL SHORT ==================== -->
+  <rect x="325" y="335" width="180" height="35" rx="17" fill="#3d1520" stroke="#ff1744" stroke-width="2" filter="url(#shadow)"/>
+  <text x="415" y="350" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" fill="#eceff1">止盈 +0.3%</text>
+  <text x="415" y="363" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" fill="#ef5350">或止损 -0.15%</text>
+
+  <!-- ==================== LOOP BACK (Center) ==================== -->
+
+  <!-- TP/SL Left → Loop back to Start -->
+  <path d="M195,352 L100,352 L100,70 L220,70" stroke="#546e7a" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arrowGray)"/>
+  <text x="85" y="210" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" fill="#78909c" transform="rotate(-90, 85, 210)">循环</text>
+
+  <!-- TP/SL Right → Loop back to Start -->
+  <path d="M505,352 L600,352 L600,70 L480,70" stroke="#546e7a" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arrowGray)"/>
+  <text x="615" y="210" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" fill="#78909c" transform="rotate(90, 615, 210)">循环</text>
+
+  <!-- Legend -->
+  <rect x="15" y="370" width="670" height="22" rx="4" fill="none"/>
+  <rect x="20" y="373" width="10" height="10" rx="2" fill="#00c853"/>
+  <text x="34" y="382" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" fill="#00c853">多头</text>
+  <rect x="80" y="373" width="10" height="10" rx="2" fill="#ff1744"/>
+  <text x="94" y="382" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" fill="#ff1744">空头</text>
+  <rect x="140" y="373" width="10" height="10" rx="2" fill="#5c6bc0"/>
+  <text x="154" y="382" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" fill="#5c6bc0">监控</text>
+  <line x1="210" y1="378" x2="240" y2="378" stroke="#546e7a" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="244" y="382" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" fill="#78909c">循环返回</text>
+</svg>

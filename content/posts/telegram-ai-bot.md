@@ -15,7 +15,9 @@ tags: ["部署", "Telegram", "Bot", "API"]
 
 后来真做出来了，用了一段时间觉得挺香。这篇文章就把整个过程拆开讲讲，从架构设计到部署踩坑，都写清楚。
 
-## 整体架构
+![Telegram Bot 消息流程图](/images/telegram-bot-arch.svg)
+
+## 架构
 
 先看看消息是怎么跑的：
 
