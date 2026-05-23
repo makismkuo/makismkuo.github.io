@@ -5,23 +5,19 @@ draft: false
 tags: ["部署", "Umami", "Docker", "Nginx"]
 ---
 
-## 为什么要自建统计
+## 为什么选择 Umami
 
-以前用 Google Analytics，每次打开都想骂人——页面加载慢得像在拨号上网，数据面板复杂得能当考卷。我就想知道多少人看了我的网站，至于给我整一套航天飞机操作台吗？
+网站的访问统计是个很有意思的需求——你明知道看了也改变不了什么，但每天还是想打开看一眼。
 
-后来试了 Plausible，好用，但要钱。一年几十刀倒也不贵，但一想到"这笔钱本来可以吃顿好的"，我就犹豫了。
+之前用 Google Analytics，功能确实强大，但总觉得它像一个穿着西装的推销员，每次来都带着一堆你不需要的东西。页面加载慢、配置项多、数据面板复杂，我只是想知道昨天有多少人访问而已。
 
-直到遇到 Umami。
+后来试了 Plausible，体验很好，简洁干净。但它是付费服务，按年收费。不是说付不起，而是想到这笔钱可以买别的，就犹豫了。
 
-它像一个刚毕业的大学生——干净、清爽、不整活。打开页面，数据就在那，不多不少。
+Umami 是 Plausible 的开源替代品。功能上差不多——访问量、页面排名、来源渠道、访客设备，该有的都有。最重要的区别是：它免费。
 
 ## 部署过程
 
-### Docker Compose
-
-说实话，第一次部署我栽了个跟头。Umami 需要 PostgreSQL，但我 docker-compose.yml 里把数据库密码写成了弱密码 `umami`，心里总觉得不安——虽然这个数据库只监听本地端口。
-
-配置很简单：
+Umami 官方推荐用 Docker Compose 部署。如果服务器上已经装了 Docker，这一步基本不费什么功夫。
 
 ```yaml
 services:
@@ -31,33 +27,55 @@ services:
       - "127.0.0.1:3000:3000"
     environment:
       DATABASE_URL: postgresql://umami:umami@db:5432/umami
+      DATABASE_TYPE: postgresql
+      APP_SECRET: your-secret
+    depends_on:
+      - db
   db:
     image: postgres:15
     environment:
+      POSTGRES_DB: umami
       POSTGRES_USER: umami
       POSTGRES_PASSWORD: umami
+    volumes:
+      - umami-db-data:/var/lib/postgresql/data
 ```
 
-### Nginx 反代
+这里有个小细节值得注意：端口映射写的是 `127.0.0.1:3000:3000`，意思是只在本地监听 3000 端口，不暴露到公网。加上 Nginx 反代后，外部访问只能通过域名和 HTTPS 进来，安全性多了一层。
 
-Umami 装在 3000 端口，但我不想直接暴露端口——万一来个扫描器给我整出事儿呢？所以用 Nginx 做反向代理，绑定域名 `stats.aibestapp.top`，套上 SSL。
+## Nginx 反代与 SSL
+
+在 Nginx 配置里加上：
+
+```nginx
+server {
+    server_name stats.aibestapp.top;
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+```
+
+然后用 certbot 申请证书：
 
 ```bash
 certbot --nginx -d stats.aibestapp.top
 ```
 
-一行命令，证书到手。Certbot 是我见过最良心的工具——不要钱、不要注册、一次性搞定。
+整个过程大概五分钟。Certbot 会自动修改 Nginx 配置、添加 SSL 相关指令，还会设置定时任务自动续期。
 
-## 踩坑记录
+## 使用感受
 
-**最大一个坑：Umami v3 登录用的是用户名，不是邮箱。**
+Umami 的界面非常简洁。左侧是菜单栏，右侧是数据展示。没有花哨的图表动画，没有弹窗引导教程，就是干净的数据。
 
-我盯着登录界面看了五分钟，试了三遍邮箱都不对，心想"完了，数据库炸了"。最后翻文档才发现——用户名是 `admin`，密码是 `umami`。
+登录的时候有个小插曲。Umami v3 版本的用户名不是邮箱，而是直接设的用户名。我拿着邮箱输了半天没进去，一度怀疑自己是不是搭错了。后来去文档翻了一下才发现——默认账号是 `admin`，密码是 `umami`。
 
-登录进去那一刻，感觉自己像个傻子。
+进去之后第一件事就是改密码。
 
 ## 目前的状态
 
-稳定运行中，每天看看访问量，够用。如果你也想要一个不折腾的统计分析工具，Umami 值得一试。
+运行了一段时间，没有出过问题。每次打开能看到昨天有多少人访问、从哪来的、看了哪些页面。数据不多，但对于个人网站来说足够了。
 
-对了，记得改默认密码——不然你跟我一样傻。
+如果要给 Umami 打分，10 分我会给 8 分。扣掉的 2 分给界面——虽然干净，但有点太干净了，有时候找设置项要找一会儿。

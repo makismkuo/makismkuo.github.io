@@ -1,51 +1,59 @@
 ---
-title: "sub2api：一个接口调所有 AI 模型，省心又省钱"
+title: "sub2api：一个接口统一管理多个 AI 模型"
 date: 2026-05-23
 draft: false
 tags: ["部署", "sub2api", "API"]
 ---
 
-## 痛点
+## 为什么需要 API 中转
 
-你有没有这种经历——钱包里揣着 OpenAI 的 Key，又买了 Claude 的额度，DeepSeek 便宜也得充点钱，最后手上有三四张 API Key，每次换模型还得改代码？
+做 AI 相关的开发，难免会遇到一个情况：不同的模型各自有独立的 API Key、独立的接口地址、独立的计费方式。OpenAI 一套、Claude 一套、DeepSeek 一套、本地模型又是一套。
 
-我忍了两个月，终于受不了了。
+每次写代码都要在代码里硬编码这些信息。换模型的时候，改代码、测试、部署，一个流程走下来小半天就没了。
 
-## sub2api 是干嘛的
+sub2api 解决的就是这个问题。它是一个轻量级的 API 中转层，把所有模型的接口统一成一个地址。你的代码只需要配置一个 base_url 和一个 api_key，剩下的事情交给它处理。
 
-简单说，它就是一个"API 路由器"。你只需要一个地址、一个 Key，它帮你把请求转发到真正的模型后面：
+## 架构
 
 ```
-你的代码 → sub2api → 自动路由到 OpenAI / Claude / DeepSeek / 其他
+你的代码 → sub2api → 路由到具体模型
+                     ├── OpenAI
+                     ├── Claude
+                     ├── DeepSeek
+                     └── 其他
 ```
 
-## 部署
+从代码的角度看，它永远只跟一个地址打交道。至于请求最终去了哪，那是不需要关心的事情。
 
-在 HK 服务器上跑了一个实例，配置文件里写好各个模型的 API Key 和地址，客户端统一指向 sub2api。
+## 配置
 
-配置大概长这样：
+sub2api 的配置是一个 YAML 文件，里面定义各个模型的接入信息：
 
 ```yaml
 models:
   gpt-4o:
     provider: openai
-    api_key: sk-xxx
-  claude-sonnet:
+    api_key: sk-openai-xxx
+  claude-sonnet-4:
     provider: anthropic
     api_key: sk-ant-xxx
-  deepseek:
+  deepseek-chat:
     provider: deepseek
     api_key: sk-ds-xxx
 ```
 
-## 两个教训
+每增加一个新模型，只需要在这里加几行配置。客户端代码不需要任何改动。
 
-**第一个：模型名要严格一致。** 客户端传 `deepseek-chat`，服务端配 `deepseek`，那就是 404。踩了半小时才发现——亏。
+## 部署时遇到的几个问题
 
-**第二个：不要搞品牌伪装。** 有人把 DeepSeek 改名成 GPT-4 去卖 API，我试了一下，后面排查问题完全是灾难。诚实地用实际模型名，你好我也好。
+**第一个问题是模型名的一致性。** 配置里写的模型名，客户端调用时必须完全一致。我一开始配的是 `deepseek-chat`，客户端传的是 `deepseek`，结果返回 404。排查了好久才意识到是名字对不上。
 
-## 现在怎么用
+**第二个是关于模型伪装。** sub2api 支持把模型改名，比如把 DeepSeek 的接口伪装成 GPT-4 的格式。有些做 API 转售的人会这么做。但我个人不建议这个做法——改名的模型在调试时很难排查问题，而且如果你的接口是对外的，这种行为也不够诚实。
 
-Telegram Bot、Hermes Agent 都走 sub2api 统一出口。想换模型改一个配置文件就行，客户端代码不用动。
+**第三个是日志。** sub2api 会记录每次调用的详细信息，包括模型、token 数、耗时。这些日志在排查问题或者做用量统计时很有用。建议定期查看。
 
-爽。
+## 实际使用场景
+
+我现在把 Telegram Bot 和 Hermes Agent 都接入了 sub2api。之前如果 DeepSeek 挂了，我得手动改客户端的 API 地址才能切换到 OpenAI。现在只需要在 sub2api 的配置里改一行，重启服务就行，对客户端来说完全无感。
+
+如果只是自己用一两个模型，sub2api 的价值不大。但如果模型数量超过三个，或者你需要频繁切换模型，它能省下不少时间。
