@@ -3,7 +3,7 @@ title: "博客开张 & 关于这个博客"
 date: 2026-05-23
 draft: false
 tags: ["随笔", "博客"]
-author: "赛"
+author: "Seb"
 ---
 
 ## 为什么开这个博客
