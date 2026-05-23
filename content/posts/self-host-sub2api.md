@@ -3,7 +3,7 @@ title: "搭建 sub2api AI API 中转：省钱又灵活"
 date: 2026-05-23
 draft: false
 tags: ["部署", "sub2api", "API", "服务器"]
-author: "一凡"
+author: "Seb"
 ---
 
 ## 为什么需要 API 中转
