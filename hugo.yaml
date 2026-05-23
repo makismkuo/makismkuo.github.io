@@ -1,6 +1,6 @@
 baseURL: "https://makismkuous-bot.github.io/"
 locale: zh-cn
-title: "凡森笔记"
+title: "Fanssen Notes"
 theme: PaperMod
 
 enableRobotsTXT: true
@@ -16,9 +16,9 @@ minify:
 
 params:
   env: production
-  title: "凡森笔记"
-  description: "每天研究一个 GitHub 项目 - 部署心得 & 技术笔记"
-  keywords: [Blog, Portfolio, PaperMod, Tech, GitHub]
+  title: "Fanssen Notes"
+  description: "每天研究一个 GitHub 项目 - Fanssen Tech 部署心得 & 技术笔记"
+  keywords: [Blog, Fanssen, Tech, GitHub]
   author: "一凡"
   images: [""]
   DateFormat: "2006-01-02"
@@ -41,9 +41,11 @@ params:
   tocopen: false
 
   homeInfoParams:
-    Title: "你好，我是一凡 👋"
+    Title: "Fanssen Notes"
     Content: >
-      每天从推特上找一个 GitHub 项目，研究、部署、写心得。
+      凡森科技 · 技术笔记
+    
+      每天从推特上找一个 GitHub 项目，研究、部署、写心得。  
       这里有我的技术笔记、项目实战、以及踩坑记录。
 
   socialIcons:
