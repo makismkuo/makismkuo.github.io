@@ -5,7 +5,7 @@ draft: false
 tags: ["部署", "Hugo", "GitHub", "博客"]
 ---
 
-大家好，我是一凡。这篇博客记录了我用 Hugo + PaperMod 搭建技术博客的完整过程，包括选型思路、架构设计、配置细节和踩坑记录。希望对正在折腾博客的朋友有帮助。
+大家好，我是Seb。这篇博客记录了我用 Hugo + PaperMod 搭建技术博客的完整过程，包括选型思路、架构设计、配置细节和踩坑记录。希望对正在折腾博客的朋友有帮助。
 
 ![博客部署架构](/images/blog-arch.svg)
 
@@ -100,12 +100,12 @@ git submodule update --remote
 ```yaml
 baseURL: "https://makismkuo.github.io/"
 languageCode: zh-cn
-title: "一凡的技术博客"
+title: "Seb的技术博客"
 theme: PaperMod
 
 params:
   homeInfoParams:
-    Title: "你好，我是一凡"
+    Title: "你好，我是Seb"
     Content: "记录技术思考、项目经验和踩坑记录"
   socialIcons:
     - name: github
