@@ -19,7 +19,7 @@ params:
   title: "Fanssen Notes"
   description: "每天研究一个 GitHub 项目 - Fanssen Tech 部署心得 & 技术笔记"
   keywords: [Blog, Fanssen, Tech, GitHub]
-  author: "一凡"
+  author: "SEB"
   images: [""]
   DateFormat: "2006-01-02"
   defaultTheme: auto
