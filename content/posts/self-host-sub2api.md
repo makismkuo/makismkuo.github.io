@@ -3,7 +3,7 @@ title: "搭建 sub2api AI API 中转：省钱又灵活"
 date: 2026-05-23
 draft: false
 tags: ["部署", "sub2api", "API", "服务器"]
-author: "Seb"
+author: "赛"
 ---
 
 ![sub2api 中转架构](/images/sub2api-arch.svg)
