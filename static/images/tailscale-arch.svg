@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0891b2"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="g4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="center" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="#f8fafc" rx="8"/>
+
+  <!-- 标题 -->
+  <text x="400" y="38" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e293b">Tailscale 组网架构图</text>
+
+  <!-- 中央 Tailscale 网络云 -->
+  <ellipse cx="400" cy="260" rx="120" ry="55" fill="url(#center)" opacity="0.15"/>
+  <ellipse cx="400" cy="260" rx="90" ry="40" fill="url(#center)" opacity="0.25"/>
+  <text x="400" y="255" text-anchor="middle" font-size="16" font-weight="bold" fill="#5b21b6">Tailscale 网络</text>
+  <text x="400" y="275" text-anchor="middle" font-size="11" fill="#6d28d9">100.x.x.x/24</text>
+
+  <!-- 连接线 -->
+  <line x1="150" y1="130" x2="350" y2="235" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="650" y1="130" x2="450" y2="235" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="150" y1="390" x2="350" y2="285" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="650" y1="390" x2="450" y2="285" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- 节点 1: 香港 VPS -->
+  <rect x="70" y="100" width="160" height="60" rx="8" fill="url(#g1)" filter="url(#shadow)"/>
+  <text x="150" y="125" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">🇭🇰 香港 VPS</text>
+  <text x="150" y="145" text-anchor="middle" font-size="11" fill="#c7d2fe">hk-vps</text>
+
+  <!-- 节点 2: 新加坡 VPS -->
+  <rect x="570" y="100" width="160" height="60" rx="8" fill="url(#g2)" filter="url(#shadow)"/>
+  <text x="650" y="125" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">🇸🇬 新加坡 VPS</text>
+  <text x="650" y="145" text-anchor="middle" font-size="11" fill="#cffafe">sg-vps</text>
+
+  <!-- 节点 3: 美国 VPS -->
+  <rect x="70" y="355" width="160" height="60" rx="8" fill="url(#g3)" filter="url(#shadow)"/>
+  <text x="150" y="380" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">🇺🇸 美国 VPS</text>
+  <text x="150" y="400" text-anchor="middle" font-size="11" fill="#a7f3d0">us-vps</text>
+
+  <!-- 节点 4: 本地 NAS -->
+  <rect x="570" y="355" width="160" height="60" rx="8" fill="url(#g4)" filter="url(#shadow)"/>
+  <text x="650" y="375" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">🏠 本地 NAS</text>
+  <text x="650" y="395" text-anchor="middle" font-size="11" fill="#fef3c7">nas-home</text>
+
+  <!-- 标签 -->
+  <text x="260" y="175" text-anchor="middle" font-size="10" fill="#64748b">P2P 直连</text>
+  <text x="540" y="175" text-anchor="middle" font-size="10" fill="#64748b">P2P 直连</text>
+  <text x="260" y="345" text-anchor="middle" font-size="10" fill="#64748b">P2P 直连</text>
+  <text x="540" y="345" text-anchor="middle" font-size="10" fill="#64748b">P2P 直连</text>
+
+  <!-- 底部说明 -->
+  <text x="400" y="470" text-anchor="middle" font-size="11" fill="#94a3b8">所有节点通过 Tailscale 安全连接，默认 P2P 直连，打洞失败时走 DERP 中继</text>
+
+  <!-- 端口标注 -->
+  <text x="400" y="490" text-anchor="middle" font-size="10" fill="#cbd5e1">端口：UDP 41641（打洞）| TCP 443（中继）</text>
+</svg>
