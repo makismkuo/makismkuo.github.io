@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520" role="img" aria-labelledby="title desc">
+  <title id="title">Hermes Rescue terminal demo</title>
+  <desc id="desc">A terminal-style preview showing Hermes Rescue detecting and restoring the Hermes gateway.</desc>
+  <rect width="920" height="520" rx="18" fill="#10131a"/>
+  <rect x="24" y="24" width="872" height="472" rx="12" fill="#171b24" stroke="#30384a"/>
+  <circle cx="52" cy="50" r="7" fill="#ff5f57"/>
+  <circle cx="76" cy="50" r="7" fill="#ffbd2e"/>
+  <circle cx="100" cy="50" r="7" fill="#28c840"/>
+  <text x="126" y="56" fill="#9ba7bd" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="15">Hermes Rescue</text>
+  <text x="48" y="100" fill="#79c0ff" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">==&gt; 检查 Web UI</text>
+  <text x="48" y="132" fill="#7ee787" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">✓ Web UI 正常：http://127.0.0.1:8787</text>
+  <text x="48" y="178" fill="#79c0ff" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">==&gt; 检查消息网关</text>
+  <text x="48" y="210" fill="#f2cc60" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">! 网关没在跑，开始自动拉起</text>
+  <text x="48" y="256" fill="#79c0ff" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">==&gt; 启动 Hermes Gateway</text>
+  <text x="48" y="288" fill="#7ee787" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">✓ 网关已恢复</text>
+  <text x="48" y="334" fill="#c9d1d9" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">running      : true</text>
+  <text x="48" y="366" fill="#c9d1d9" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">platforms    : Weixin, Telegram</text>
+  <text x="48" y="412" fill="#79c0ff" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">==&gt; 下一步</text>
+  <text x="48" y="444" fill="#c9d1d9" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">发一句“在吗”测试；API 挂了就运行 ./hermes-client.sh api</text>
+</svg>
