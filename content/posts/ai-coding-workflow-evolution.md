@@ -5,7 +5,7 @@ draft: false
 tags: ["AI", "编程", "工作流", "Agent", "经验分享"]
 ---
 
-![cover待替换](/images/cover-placeholder.png)
+![从 Chat 到 Multi-Agent：AI 编程工作流的进化](/images/ai-coding-cover.jpg)
 
 2026 年春天，GitHub Copilot 宣布用户突破 5000 万。同一周，Claude Code 的仓库冲到了 20k+ star，Cursor 完成了新一轮融资，估值破百亿美元。
 

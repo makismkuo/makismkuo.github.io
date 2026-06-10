@@ -1,46 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <linearGradient id="b" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#0f172a"/>
       <stop offset="100%" stop-color="#020617"/>
     </linearGradient>
+    <linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.05"/>
+    </linearGradient>
   </defs>
-  <rect width="800" height="460" fill="url(#bg)"/>
-  <text x="400" y="35" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="18" font-weight="bold">Agent 模式的 4 个硬约束</text>
+  <rect width="800" height="350" fill="url(#b)"/>
+  <rect x="50" y="50" width="700" height="250" rx="15" fill="url(#bg4)" stroke="#334155" stroke-width="1"/>
 
-  <!-- Card 1: Token -->
-  <rect x="20" y="60" width="370" height="85" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="1"/>
-  <circle cx="50" cy="90" r="16" fill="#f97316" fill-opacity="0.2" stroke="#f97316" stroke-width="1"/>
-  <text x="50" y="95" text-anchor="middle" fill="#f97316" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">①</text>
-  <text x="78" y="88" fill="#f97316" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">Token 消耗很大</text>
-  <text x="78" y="108" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">改一个函数：Chat 几百 token vs Agent 几万 token</text>
-  <text x="78" y="125" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">做个一天活，账单可能比午饭还贵</text>
+  <!-- 3 columns -->
+  <text x="180" y="120" text-anchor="middle" fill="#22d3ee" font-family="system-ui,sans-serif" font-size="22" font-weight="bold">💬</text>
+  <text x="180" y="145" text-anchor="middle" fill="#22d3ee" font-family="system-ui,sans-serif" font-size="14">Chat 模式</text>
+  <rect x="100" y="155" width="160" height="3" rx="1" fill="#22d3ee" fill-opacity="0.3"/>
+  <text x="180" y="180" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="11">你写提示 → AI 给代码</text>
+  <text x="180" y="198" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="11">你手动复制粘贴</text>
+  <text x="180" y="220" text-anchor="middle" fill="#fbbf24" font-family="system-ui,sans-serif" font-size="11">控制力 ★★★★★</text>
 
-  <!-- Card 2: Context -->
-  <rect x="410" y="60" width="370" height="85" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="1"/>
-  <circle cx="440" cy="90" r="16" fill="#f97316" fill-opacity="0.2" stroke="#f97316" stroke-width="1"/>
-  <text x="440" y="95" text-anchor="middle" fill="#f97316" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">②</text>
-  <text x="468" y="88" fill="#f97316" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">上下文是硬天花板</text>
-  <text x="468" y="108" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">超 40-50k token 后 Agent 开始「失忆」</text>
-  <text x="468" y="125" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">忘掉最早的需求，把不相关文件混在一起改</text>
+  <!-- Arrow 1 -->
+  <text x="330" y="145" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="28">→</text>
 
-  <!-- Card 3: Loop -->
-  <rect x="20" y="160" width="370" height="85" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="1"/>
-  <circle cx="50" cy="190" r="16" fill="#f97316" fill-opacity="0.2" stroke="#f97316" stroke-width="1"/>
-  <text x="50" y="195" text-anchor="middle" fill="#f97316" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">③</text>
-  <text x="78" y="188" fill="#f97316" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">容易陷入修复循环</text>
-  <text x="78" y="208" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">发现 bug → 尝试修 → 引入新 bug → 再修 → 再引入</text>
-  <text x="78" y="225" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">最夸张一次：同一个函数反复改了 7 次</text>
+  <text x="400" y="120" text-anchor="middle" fill="#34d399" font-family="system-ui,sans-serif" font-size="22" font-weight="bold">🤖</text>
+  <text x="400" y="145" text-anchor="middle" fill="#34d399" font-family="system-ui,sans-serif" font-size="14">Agent 模式</text>
+  <rect x="320" y="155" width="160" height="3" rx="1" fill="#34d399" fill-opacity="0.3"/>
+  <text x="400" y="180" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="11">指令 → 自动读代码/执行</text>
+  <text x="400" y="198" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="11">自动修复/重试</text>
+  <text x="400" y="220" text-anchor="middle" fill="#fbbf24" font-family="system-ui,sans-serif" font-size="11">效率 ★★★★</text>
 
-  <!-- Card 4: Blindness -->
-  <rect x="410" y="160" width="370" height="85" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="1"/>
-  <circle cx="440" cy="190" r="16" fill="#f97316" fill-opacity="0.2" stroke="#f97316" stroke-width="1"/>
-  <text x="440" y="195" text-anchor="middle" fill="#f97316" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">④</text>
-  <text x="468" y="188" fill="#f97316" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">不理解「还没写」的部分</text>
-  <text x="468" y="208" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">只能看到已有代码，不知道你脑子里未落地的设计</text>
-  <text x="468" y="225" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">能做好修改和扩展，但做不好从零构建</text>
+  <!-- Arrow 2 -->
+  <text x="550" y="145" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="28">→</text>
 
-  <!-- Bottom tip -->
-  <rect x="250" y="400" width="300" height="35" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-  <text x="400" y="422" text-anchor="middle" fill="#f97316" font-family="system-ui, sans-serif" font-size="11">💡 最有效的操作：Ctrl+C 重来</text>
+  <text x="620" y="120" text-anchor="middle" fill="#a78bfa" font-family="system-ui,sans-serif" font-size="22" font-weight="bold">👥</text>
+  <text x="620" y="145" text-anchor="middle" fill="#a78bfa" font-family="system-ui,sans-serif" font-size="14">Multi-Agent</text>
+  <rect x="540" y="155" width="160" height="3" rx="1" fill="#a78bfa" fill-opacity="0.3"/>
+  <text x="620" y="180" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="11">多角色分工协作</text>
+  <text x="620" y="198" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="11">各司其职</text>
+  <text x="620" y="220" text-anchor="middle" fill="#fbbf24" font-family="system-ui,sans-serif" font-size="11">适合调研/分析</text>
+
+  <!-- Bottom text -->
+  <rect x="250" y="250" width="300" height="28" rx="14" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="400" y="269" text-anchor="middle" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="11">叠层关系：不是替代，是升级</text>
 </svg>

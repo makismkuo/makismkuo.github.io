@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg2)"/>
+  <text x="400" y="35" text-anchor="middle" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="18" font-weight="bold">Agent 模式的 4 个硬约束</text>
+  <text x="400" y="55" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="11">痛点真实，用了一年多的总结</text>
+
+  <!-- Card 1 -->
+  <rect x="20" y="80" width="370" height="140" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="1" stroke-opacity="0.4"/>
+  <rect x="20" y="80" width="8" height="140" rx="4" fill="#f97316"/>
+  <text x="42" y="108" fill="#f97316" font-family="system-ui,sans-serif" font-size="14" font-weight="bold">💰 Token 消耗很大</text>
+  <text x="42" y="132" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="11">改一个函数：Chat 花几百 token → Agent 要几万 token</text>
+  <text x="42" y="152" fill="#64748b" font-family="system-ui,sans-serif" font-size="11">Claude Code 做一天活，账单可能比你的午饭还贵</text>
+  <text x="42" y="175" fill="#64748b" font-family="system-ui,sans-serif" font-size="10">这不是效率问题，是成本问题。</text>
+  <text x="356" y="175" text-anchor="end" fill="#f97316" font-family="system-ui,sans-serif" font-size="24">100x</text>
+
+  <!-- Card 2 -->
+  <rect x="410" y="80" width="370" height="140" rx="10" fill="#1e293b" stroke="#fb7185" stroke-width="1" stroke-opacity="0.4"/>
+  <rect x="410" y="80" width="8" height="140" rx="4" fill="#fb7185"/>
+  <text x="432" y="108" fill="#fb7185" font-family="system-ui,sans-serif" font-size="14" font-weight="bold">📏 上下文长度是硬天花板</text>
+  <text x="432" y="132" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="11">超过 40-50k token 后，Agent 开始「失忆」</text>
+  <text x="432" y="152" fill="#64748b" font-family="system-ui,sans-serif" font-size="11">忘掉最早的需求 / 把两个文件混在一起改</text>
+  <text x="432" y="175" fill="#64748b" font-family="system-ui,sans-serif" font-size="10">解释 10 分钟 → 生成的东西不对 → 憋屈</text>
+
+  <!-- Card 3 -->
+  <rect x="20" y="240" width="370" height="140" rx="10" fill="#1e293b" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+  <rect x="20" y="240" width="8" height="140" rx="4" fill="#a78bfa"/>
+  <text x="42" y="268" fill="#a78bfa" font-family="system-ui,sans-serif" font-size="14" font-weight="bold">🔄 容易陷入修复循环</text>
+  <text x="42" y="292" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="11">发现 bug → 修 → 引入新 bug → 再修 → 再引入...</text>
+  <text x="42" y="312" fill="#64748b" font-family="system-ui,sans-serif" font-size="11">同一个函数反复改 7 次，每次修上一个引入的新问题</text>
+  <text x="42" y="335" fill="#f97316" font-family="system-ui,sans-serif" font-size="10">最有效操作：Ctrl+C 重来</text>
+  <text x="356" y="335" text-anchor="end" fill="#a78bfa" font-family="system-ui,sans-serif" font-size="20">7x</text>
+
+  <!-- Card 4 -->
+  <rect x="410" y="240" width="370" height="140" rx="10" fill="#1e293b" stroke="#22d3ee" stroke-width="1" stroke-opacity="0.4"/>
+  <rect x="410" y="240" width="8" height="140" rx="4" fill="#22d3ee"/>
+  <text x="432" y="268" fill="#22d3ee" font-family="system-ui,sans-serif" font-size="14" font-weight="bold">🧠 不理解「还没写」的部分</text>
+  <text x="432" y="292" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="11">Agent 只能看到已有代码</text>
+  <text x="432" y="312" fill="#64748b" font-family="system-ui,sans-serif" font-size="11">你脑子里但没落到文件上的设计，一概不知</text>
+  <text x="432" y="335" fill="#64748b" font-family="system-ui,sans-serif" font-size="10">做得好「修改」和「扩展」，做不好「从零构建」</text>
+</svg>
