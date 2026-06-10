@@ -1,6 +1,6 @@
 baseURL: "https://makismkuo.github.io/"
 locale: zh-cn
-title: "Fanssen Notes"
+title: "Fansen.tech"
 theme: PaperMod
 
 enableRobotsTXT: true
@@ -16,9 +16,9 @@ minify:
 
 params:
   env: production
-  title: "Fanssen Notes"
-  description: "每天研究一个 GitHub 项目 - Fanssen Tech 部署心得 & 技术笔记"
-  keywords: [Blog, Fanssen, Tech, GitHub]
+  title: "Fansen.tech"
+  description: "每天研究一个 GitHub 项目 - Fansen Tech 部署心得 & 技术笔记"
+  keywords: [Blog, Fansen, Tech, GitHub]
   author: "Seb"
   images: [""]
   DateFormat: "2006-01-02"
@@ -41,7 +41,7 @@ params:
   tocopen: false
 
   homeInfoParams:
-    Title: "Fanssen Notes"
+    Title: "Fansen.tech"
     Content: >
       凡森科技 · 技术笔记
     
