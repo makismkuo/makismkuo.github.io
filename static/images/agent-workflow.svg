@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="userCard" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="agentCard" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0.08"/>
+    </linearGradient>
+    <marker id="arrowRight" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrowDown" viewBox="0 0 10 10" refX="5" refY="9" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 5 10 L 10 0 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  
+  <text x="400" y="35" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="18" font-weight="bold">Agent 模式工作流</text>
+  <text x="400" y="55" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="11">以部署 Telegram 价格监控 Bot 为例</text>
+
+  <!-- User Side -->
+  <rect x="50" y="80" width="300" height="310" rx="10" fill="url(#userCard)" stroke="#fbbf24" stroke-width="1" stroke-opacity="0.5"/>
+  <rect x="50" y="80" width="300" height="35" rx="10" fill="#fbbf24" fill-opacity="0.1"/>
+  <text x="200" y="103" text-anchor="middle" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">👤 你（决策层）</text>
+
+  <text x="200" y="140" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">① 一句话需求</text>
+  <rect x="65" y="150" width="270" height="40" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="200" y="168" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="10">"帮我部署一个 Telegram 价格监控 Bot"</text>
+  <text x="200" y="181" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="9">→ 你只描述目标，不写具体步骤</text>
+
+  <text x="200" y="225" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">④ 审核结果</text>
+  <rect x="65" y="235" width="270" height="40" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="200" y="253" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="10">检查 Bot 是否正常运行</text>
+  <text x="200" y="266" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="9">→ 你对最终结果负责</text>
+
+  <text x="200" y="305" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">⑤ 迭代微调</text>
+  <rect x="65" y="315" width="270" height="40" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="200" y="333" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="10">"改成每30分钟检查一次"</text>
+  <text x="200" y="346" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="9">→ 一句话修正方向，Agent 自动执行</text>
+
+  <!-- Arrow: User → Agent -->
+  <line x1="350" y1="165" x2="400" y2="165" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrowRight)"/>
+
+  <!-- Agent Side -->
+  <rect x="450" y="80" width="300" height="310" rx="10" fill="url(#agentCard)" stroke="#34d399" stroke-width="1" stroke-opacity="0.5"/>
+  <rect x="450" y="80" width="300" height="35" rx="10" fill="#34d399" fill-opacity="0.1"/>
+  <text x="600" y="103" text-anchor="middle" fill="#34d399" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">🤖 AI Agent（执行层）</text>
+
+  <text x="600" y="140" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">② 自动执行</text>
+  <rect x="465" y="150" width="270" height="55" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="600" y="168" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="10">📖 读项目代码结构</text>
+  <text x="600" y="182" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="10">🔍 搜 Telegram API 文档</text>
+  <text x="600" y="196" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="10">📦 安装依赖 → 改配置 → 试跑</text>
+
+  <text x="600" y="230" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">③ 自动修复</text>
+  <rect x="465" y="240" width="270" height="40" rx="6" fill="#1e293b" stroke="#f97316" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="600" y="258" text-anchor="middle" fill="#f97316" font-family="system-ui, sans-serif" font-size="10">⚠ 报错了？自己分析错误信息</text>
+  <text x="600" y="272" text-anchor="middle" fill="#f97316" font-family="system-ui, sans-serif" font-size="10">→ 读日志 → 改代码 → 重新跑</text>
+
+  <text x="600" y="305" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">全程</text>
+  <rect x="580" y="315" width="40" height="40" rx="20" fill="#34d399" fill-opacity="0.15" stroke="#34d399" stroke-width="1"/>
+  <text x="600" y="340" text-anchor="middle" fill="#34d399" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">&lt;10min</text>
+
+  <!-- Arrow: Agent → User -->
+  <line x1="450" y1="255" x2="400" y2="255" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrowRight)"/>
+
+  <!-- Bottom summary -->
+  <rect x="200" y="400" width="400" height="30" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="400" y="419" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">你负责「决策」→ Agent 负责「执行」→ 你审核「结果」</text>
+</svg>
