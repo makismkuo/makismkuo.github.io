@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 632" width="900" height="632">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#141832;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6366f1"/>
+    </marker>
+  </defs>
+  <rect width="900" height="632" fill="url(#bg)"/>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.03">
+    <line x1="0" y1="0" x2="900" y2="0" stroke="#6366f1" stroke-width="1"/>
+    <line x1="0" y1="100" x2="900" y2="100" stroke="#6366f1" stroke-width="1"/>
+    <line x1="0" y1="200" x2="900" y2="200" stroke="#6366f1" stroke-width="1"/>
+  </g>
+  
+  <text x="450.0" y="40" text-anchor="middle" fill="#c7d2fe" font-family="sans-serif" font-size="20" font-weight="bold">Harbor Architecture</text>
+
+  <text x="50" y="72" fill="#6366f1" font-family="sans-serif" font-size="12" font-weight="bold">USER ACCESS</text>
+  <rect x="70" y="80" width="180" height="48" rx="6" fill="#1e1b4b" stroke="#a5b4fc" stroke-width="1" opacity="0.9"/>
+  <text x="160.0" y="108.0" text-anchor="middle" fill="#a5b4fc" font-family="sans-serif" font-size="12">CLI</text>
+  <rect x="266" y="80" width="180" height="48" rx="6" fill="#1e1b4b" stroke="#a5b4fc" stroke-width="1" opacity="0.9"/>
+  <text x="356.0" y="108.0" text-anchor="middle" fill="#a5b4fc" font-family="sans-serif" font-size="12">Web UI</text>
+  <rect x="462" y="80" width="180" height="48" rx="6" fill="#1e1b4b" stroke="#a5b4fc" stroke-width="1" opacity="0.9"/>
+  <text x="552.0" y="108.0" text-anchor="middle" fill="#a5b4fc" font-family="sans-serif" font-size="12">Mobile</text>
+  <rect x="658" y="80" width="180" height="48" rx="6" fill="#1e1b4b" stroke="#a5b4fc" stroke-width="1" opacity="0.9"/>
+  <text x="748.0" y="108.0" text-anchor="middle" fill="#a5b4fc" font-family="sans-serif" font-size="12">API</text>
+  <text x="50" y="180" fill="#6366f1" font-family="sans-serif" font-size="12" font-weight="bold">ORCHESTRATION</text>
+  <rect x="380" y="296" width="140" height="48" rx="8" fill="#312e81" stroke="#818cf8" stroke-width="1.5"/>
+  <text x="450" y="325" text-anchor="middle" fill="#c7d2fe" font-family="sans-serif" font-size="13" font-weight="bold" filter="url(#glow)">Harbor CLI</text>
+  <text x="450" y="284" text-anchor="middle" fill="#818cf8" font-family="sans-serif" font-size="11">BACKENDS</text>
+  <line x1="520" y1="320" x2="160" y2="320" stroke="#6366f1" stroke-width="1" marker-end="url(#arrow)" opacity="0.5"/>
+  <line x1="380" y1="320" x2="740" y2="320" stroke="#6366f1" stroke-width="1" marker-end="url(#arrow)" opacity="0.5"/>
+  <line x1="520" y1="320" x2="260" y2="320" stroke="#6366f1" stroke-width="1" marker-end="url(#arrow)" opacity="0.5"/>
+  <line x1="380" y1="320" x2="640" y2="320" stroke="#6366f1" stroke-width="1" marker-end="url(#arrow)" opacity="0.5"/>
+  <line x1="520" y1="320" x2="360" y2="320" stroke="#6366f1" stroke-width="1" marker-end="url(#arrow)" opacity="0.5"/>
+  <line x1="380" y1="320" x2="540" y2="320" stroke="#6366f1" stroke-width="1" marker-end="url(#arrow)" opacity="0.5"/>
+  <line x1="520" y1="320" x2="460" y2="320" stroke="#6366f1" stroke-width="1" marker-end="url(#arrow)" opacity="0.5"/>
+  <line x1="380" y1="320" x2="440" y2="320" stroke="#6366f1" stroke-width="1" marker-end="url(#arrow)" opacity="0.5"/>
+  <line x1="520" y1="320" x2="560" y2="320" stroke="#6366f1" stroke-width="1" marker-end="url(#arrow)" opacity="0.5"/>
+  <line x1="380" y1="320" x2="340" y2="320" stroke="#6366f1" stroke-width="1" marker-end="url(#arrow)" opacity="0.5"/>
+  <text x="50" y="396" fill="#6366f1" font-family="sans-serif" font-size="12" font-weight="bold">SERVICES</text>
+  <rect x="70" y="404" width="180" height="48" rx="6" fill="#1e1b4b" stroke="#f472b6" stroke-width="1" opacity="0.9"/>
+  <text x="160.0" y="432.0" text-anchor="middle" fill="#f472b6" font-family="sans-serif" font-size="12">Open WebUI</text>
+  <rect x="266" y="404" width="180" height="48" rx="6" fill="#1e1b4b" stroke="#f472b6" stroke-width="1" opacity="0.9"/>
+  <text x="356.0" y="432.0" text-anchor="middle" fill="#f472b6" font-family="sans-serif" font-size="12">ComfyUI</text>
+  <rect x="462" y="404" width="180" height="48" rx="6" fill="#1e1b4b" stroke="#f472b6" stroke-width="1" opacity="0.9"/>
+  <text x="552.0" y="432.0" text-anchor="middle" fill="#f472b6" font-family="sans-serif" font-size="12">SearXNG</text>
+  <rect x="658" y="404" width="180" height="48" rx="6" fill="#1e1b4b" stroke="#f472b6" stroke-width="1" opacity="0.9"/>
+  <text x="748.0" y="432.0" text-anchor="middle" fill="#f472b6" font-family="sans-serif" font-size="12">Speaches</text>
+</svg>
