@@ -12,22 +12,29 @@ tags: ["开源", "推荐", "GitHub", "AI", "效率工具"]
 Harbor 是我最近发现的一个工具，专治这种"想开始但被配置劝退"的情况。
 
 一条命令，你想要的东西全有了：
+
 ```
 harbor up ollama
 ```
+
 这行命令下去，Ollama 和 Open WebUI 自动装好配通，直接打开浏览器就能用。
 
 还不够？加联网搜索和语音对话：
+
 ```
 harbor up searxng speaches
 ```
 
 每个服务之间的网络、端口、环境变量，Harbor 全自动搞定。它支持十几个后端引擎——Ollama、llama.cpp、vLLM、MLX（macOS 加速），前端也有 Open WebUI、ChatUI、Morphic 可选。想试什么试什么，不用从头配。
 
+![Harbor 架构：一条命令拉起全部服务](/images/harbor-arch.svg)
+
 对做开发的人来说，更实用的是这个：
+
 ```
 harbor launch --backend ollama --model qwen3.5:4b codex
 ```
+
 一行命令把本地模型挂到你的编程助手（Claude Code、Codex、Copilot、OpenCode 都支持），不用折腾 provider 配置。
 
 怎么理解这件事呢？以前你想在本地跑 AI，需要搞懂 Docker、CLI、端口转发、环境变量、模型路径……你是个想学 AI 的人，不是运维。Harbor 把这些全包了，你只需要关心"我想跑什么模型"。
