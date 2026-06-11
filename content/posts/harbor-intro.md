@@ -27,7 +27,7 @@ harbor up searxng speaches
 
 每个服务之间的网络、端口、环境变量，Harbor 全自动搞定。它支持十几个后端引擎——Ollama、llama.cpp、vLLM、MLX（macOS 加速），前端也有 Open WebUI、ChatUI、Morphic 可选。想试什么试什么，不用从头配。
 
-![Harbor 架构：一条命令拉起全部服务](/images/harbor-arch.svg)
+![Harbor 架构：一条命令拉起全部服务](/images/harbor-arch.png)
 
 对做开发的人来说，更实用的是这个：
 
