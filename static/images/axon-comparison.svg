@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" font-family="'SF Pro','Inter',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0f0f1a"/><stop offset="100%" stop-color="#1a1a2e"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity=".25"/></filter>
+  </defs>
+  <rect width="900" height="480" fill="url(#bg)" rx="16"/>
+
+  <text x="450" y="35" text-anchor="middle" fill="#e2e8f0" font-size="16" font-weight="700" letter-spacing="1">传统搜索 vs. 知识图谱：一次 MCP 调用</text>
+
+  <!-- Left: Before -->
+  <rect x="40" y="60" width="390" height="390" rx="14" fill="rgba(239,68,68,.04)" stroke="rgba(239,68,68,.15)" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="55" y="75" width="360" height="30" rx="6" fill="rgba(239,68,68,.1)"/>
+  <text x="235" y="95" text-anchor="middle" fill="#ef4444" font-size="12" font-weight="700">❌ 传统方式：10+ 次搜索</text>
+
+  <text x="55" y="130" fill="#94a3b8" font-size="12">AI 代理需要反复 grep 来拼凑上下文</text>
+
+  <rect x="55" y="145" width="360" height="28" rx="6" fill="rgba(255,255,255,.03)"/>
+  <text x="65" y="163" fill="#64748b" font-size="11" font-family="'SF Mono',monospace">1. grep -r "validate" --include="*.py"</text>
+
+  <rect x="55" y="180" width="360" height="28" rx="6" fill="rgba(255,255,255,.03)"/>
+  <text x="65" y="198" fill="#64748b" font-size="11" font-family="'SF Mono',monospace">2. grep -r "UserService" --include="*.py"</text>
+
+  <rect x="55" y="215" width="360" height="28" rx="6" fill="rgba(255,255,255,.03)"/>
+  <text x="65" y="233" fill="#64748b" font-size="11" font-family="'SF Mono',monospace">3. grep import … → 遗漏间接调用</text>
+
+  <rect x="55" y="250" width="360" height="28" rx="6" fill="rgba(255,255,255,.03)"/>
+  <text x="65" y="268" fill="#64748b" font-size="11" font-family="'SF Mono',monospace">4. 手动追踪执行流 → 容易遗漏路径</text>
+
+  <rect x="55" y="285" width="360" height="28" rx="6" fill="rgba(255,255,255,.03)"/>
+  <text x="65" y="303" fill="#64748b" font-size="11" font-family="'SF Mono',monospace">5. 上下文窗口有限 → 结果不完整</text>
+
+  <text x="55" y="345" fill="#ef4444" font-size="11">结果：47 个受影响符号，只找到 23 个</text>
+  <text x="55" y="362" fill="#f87171" font-size="10">遗漏间接依赖 · 无法感知架构分层</text>
+  <text x="55" y="379" fill="#f87171" font-size="10">花费 ~15 秒 · 超过窗口 · 不精确</text>
+
+  <rect x="55" y="400" width="200" height="28" rx="6" fill="rgba(239,68,68,.08)"/>
+  <text x="155" y="419" text-anchor="middle" fill="#ef4444" font-size="11" font-weight="600">⚠️ 遗漏率约 51%</text>
+
+  <!-- Right: After -->
+  <rect x="470" y="60" width="390" height="390" rx="14" fill="rgba(52,211,153,.04)" stroke="rgba(52,211,153,.15)" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="485" y="75" width="360" height="30" rx="6" fill="rgba(52,211,153,.1)"/>
+  <text x="665" y="95" text-anchor="middle" fill="#34d399" font-size="12" font-weight="700">✅ Axon MCP：1 次调用</text>
+
+  <rect x="485" y="130" width="360" height="45" rx="8" fill="rgba(52,211,153,.05)" stroke="rgba(52,211,153,.1)" stroke-width="1"/>
+  <text x="500" y="150" fill="#34d399" font-size="12" font-family="'SF Mono',monospace">axon_impact("validate")</text>
+  <text x="500" y="168" fill="#64748b" font-size="10">一次调用，返回所有 47 个受影响符号</text>
+
+  <text x="485" y="200" fill="#94a3b8" font-size="12">返回结果（结构化 JSON）：</text>
+
+  <rect x="485" y="212" width="360" height="28" rx="6" fill="rgba(255,255,255,.03)"/>
+  <text x="495" y="230" fill="#ec4899" font-size="11" font-family="'SF Mono',monospace">🔴 会炸：3 个符号 · 置信度 &gt; 0.9</text>
+
+  <rect x="485" y="247" width="360" height="28" rx="6" fill="rgba(255,255,255,.03)"/>
+  <text x="495" y="265" fill="#f59e0b" font-size="11" font-family="'SF Mono',monospace">🟡 可能炸：8 个符号 · 置信度 0.7–0.9</text>
+
+  <rect x="485" y="282" width="360" height="28" rx="6" fill="rgba(255,255,255,.03)"/>
+  <text x="495" y="300" fill="#34d399" font-size="11" font-family="'SF Mono',monospace">🟢 建议复查：36 个符号 · 置信度 &lt; 0.7</text>
+
+  <text x="485" y="345" fill="#34d399" font-size="11">结果：全部 47 个符号，按受损程度分组</text>
+  <text x="485" y="362" fill="#6ee7b7" font-size="10">精确图遍历 · 包含间接依赖</text>
+  <text x="485" y="379" fill="#6ee7b7" font-size="10">耗时 &lt; 200ms · 结构化数据 · 零遗漏</text>
+
+  <rect x="485" y="400" width="200" height="28" rx="6" fill="rgba(52,211,153,.08)"/>
+  <text x="585" y="419" text-anchor="middle" fill="#34d399" font-size="11" font-weight="600">✅ 覆盖率 100%</text>
+</svg>
