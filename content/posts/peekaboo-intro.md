@@ -1,5 +1,5 @@
 ---
-title: "Peekaboo：让AI真正"看见"你的Mac屏幕"
+title: 'Peekaboo：让AI真正"看见"你的Mac屏幕'
 date: 2026-06-20
 draft: false
 tags: ["开源", "推荐", "GitHub", "macOS", "AI工具"]
