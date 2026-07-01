@@ -6,6 +6,8 @@ tags: ["开源", "推荐", "GitHub", "AI", "CLI"]
 description: "Tokscale 是一个 Rust 编写的 CLI 工具，帮你追踪所有 AI 编码代理的 Token 使用量和花费，支持 Claude Code、Codex、Cursor 等 30+ 平台。"
 ---
 
+![Tokscale Hero](/images/tokscale-hero.png)
+
 如果你同时在用多个 AI 编码助手——Claude Code 写后端、Codex 改前端、Cursor 做重构——月底想知道自己到底花了多少钱，基本只能靠猜。
 
 **Tokscale** 就是为了解决这个问题而生的。它是一个 Rust 编写的命令行工具，能自动扫描你本地所有 AI 编码代理的使用记录，汇总成一份清晰的 Token 和费用报告。项目地址：[github.com/junhoyeo/tokscale](https://github.com/junhoyeo/tokscale)，当前 ⭐4k。
