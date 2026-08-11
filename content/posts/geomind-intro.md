@@ -133,7 +133,7 @@ GEO 正在从概念变成刚需。AI 搜索的流量分配方式和传统搜索�
 
 ## 链接
 
-- GitHub：[coming soon]
+- GitHub：[makismkuo/geomind](https://github.com/makismkuo/geomind)
 - 项目官网：https://fansen.tech/geomind
 
 ---

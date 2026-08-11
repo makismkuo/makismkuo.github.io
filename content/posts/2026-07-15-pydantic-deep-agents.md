@@ -1,5 +1,5 @@
 ---
-title: "pydantic-deep-agents：能"平行宇宙"式分叉的终端AI助手，Claude Code的Python开源替代"
+title: "pydantic-deep-agents：能「平行宇宙」式分叉的终端AI助手，Claude Code的Python开源替代"
 date: 2026-07-15T00:00:00+08:00
 draft: false
 tags: ["开源", "推荐", "GitHub", "AI工具", "Python"]
